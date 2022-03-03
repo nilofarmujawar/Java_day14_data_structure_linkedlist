@@ -1,20 +1,54 @@
-package com.linkedlist;
+package com.linkedlist;  //package name
 
+import java.util.Scanner;// import scanner class
+
+//main class
 public class LinkedListMain {
-    public static void main(String[] args) {
-        System.out.println("Welcome to DataStructure Program On LinkedList ");
-        Node firstNode = new Node(56);
-        Node secondNode = new Node(30);
-        Node thirdNode = new Node(70);
-        Node head = firstNode;
-        firstNode.next = secondNode;
-        secondNode.next = thirdNode;
-        Node tail = thirdNode;
 
-        Node temp = head;
-        while (temp != null) {
-            System.out.println(temp.data);
-            temp = temp.next;
+    /*
+     *  main method every program execute here.
+     */
+
+    public static void main(String[] args) {
+        /*
+          create object for linkedlist class coz no one method is static in this class
+         */
+
+        LinkedList linkedList = new LinkedList();
+
+        /*
+         * create scanner class and object
+         * scanner class read java user input
+         */
+        Scanner sc = new Scanner(System.in);
+
+        /*
+         * in sout 1st print the welcome msg and then choose our option then if
+         * we press 1 then they print inserting data
+         */
+
+        System.out.println("Welcome to DataStructure Program\n\n"
+                + "Choose your option:\n"
+                + "1. Create a simple LinkedList\n" );
+
+
+        int option = sc.nextInt();
+        System.out.println();
+
+        /*
+         * using switch case,they check the condition if they got condition is true then the stop searching
+         * and break it.
+         */
+        switch (option) {
+
+            case 1:
+
+                linkedList.insert(56);
+                linkedList.insert(30);
+                linkedList.insert(70);
+
+                linkedList.print();
+                break;
         }
     }
 }
