@@ -33,6 +33,7 @@ public class LinkedListMain {
          * 7.press 7 Search linked list to find Node with Value
          * 8.press 8 insert element in any position
          * 9.delete node
+         * 10.Press  Create Ascending Order
          */
 
         System.out.println("Welcome to DataStructure Program\n\n"
@@ -45,7 +46,8 @@ public class LinkedListMain {
                 + "6. Delete the last element in the LinkedList\n"//uc6
                 + "7. Find node with value 30"  //uc7
                 + "8. Insert 40 after 30"  //uc8
-                + "9. Delete the Node");//uc9
+                + "9. Delete the Node"   //uc9
+                + "10. Ascending order");//uc10
 
 
         int option = sc.nextInt();
@@ -153,14 +155,33 @@ public class LinkedListMain {
 
                 break;
 
+
+
                 /*
                 for uc 9
                  */
             case 9:
-
+                linkedList.insert(56);
+                linkedList.insert(30);
+                linkedList.insert(40);
+                linkedList.insert(70);
                 linkedList.deleteANode(40);
                 linkedList.print();
 
+                break;
+
+
+                /*
+                for uc 10
+                 */
+            case 10:
+                linkedList.insert(56);
+                linkedList.insert(30);
+                linkedList.insert(40);
+                linkedList.insert(70);
+                linkedList.sort();
+                linkedList.print();
+                 break;
         }
     }
 }
