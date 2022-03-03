@@ -1,5 +1,4 @@
-
-               package com.linkedlist;  //package name
+ package com.linkedlist;  //package name
 
 import java.util.Scanner;// import scanner class
 
