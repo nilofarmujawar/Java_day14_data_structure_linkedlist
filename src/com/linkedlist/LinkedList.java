@@ -1,53 +1,143 @@
 package com.linkedlist;
 
-
+/*
+ *creating a class name as LinkedList
+ *
+ * in this class we perform all th operations
+ */
 public class LinkedList {
     Node head;
-    Node tail;
 
-    public Node push(int data) {
+    // create node class
+
+    /*
+     * class Node that hold data and a reference/link
+	 * to the next Node in the list
+     */
+    class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+    /*
+     * Method to add a node at the beginning of the list
+     */
+
+    public Node insert(int data) {
+
+        /*
+         * Create a new node
+         */
         Node newNode = new Node(data);
+
+        /*
+         * Check if the list is empty
+         */
         if (head == null) {
+
+            /*
+             * Make the new node as head
+             */
             head = newNode;
-            tail = newNode;
+
         } else {
             Node temp = head;
-            this.head = newNode;
-            newNode.next = temp;
+
+            /*
+             * traverse to the end of the list
+             */
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
         }
         return newNode;
     }
 
+    /*
+     * create a print method
+     */
     public void print() {
-        if (head == null) {
-            System.out.println("Linked List is Empty");
-        } else {
-            Node temp = head;
-            while (temp != null) {
-                if (temp.next != null)
-                    System.out.print(temp.data + " -> ");
-                else
-                    System.out.println(temp.data);
-                temp = temp.next;
-            }
 
+        /*
+         * head store in temp variable
+         */
+        Node temp = head;
+
+        /*
+         * While loop using
+         *
+         * If temp is not equal to null then print in sout data
+         */
+        while (temp != null) {
+            System.out.print(temp.data + "-> ");
+            temp = temp.next;
         }
-    }
 
-    public void append(int data) {
-        Node newNode = new Node(data);
-        if (head == null) {
+    }
+         /*
+          * create a push method for adding new node and passing parameter
+          */
+        public void push ( int data){
+            /*
+             * Create a new node
+             */
+            Node newNode = new Node(data);
+            /*
+             * new node is head
+             */
+            newNode.next = head;
             head = newNode;
-            tail = newNode;
-        } else {
-            this.tail.next = newNode;
-            tail = newNode;
+
         }
+
+        /*
+         *  create a method for Insert 30 between 56 and 70
+         */
+    public void insertAfter(Node prevNode, int value) {
+        /*
+         * condition is checked
+         */
+        if (prevNode == null) {
+            System.out.println("Prev Node should not be null");
+            return;
+        }
+        //56 ->70
+        //56 -> 30 -> 70
+
+        /*
+         * create new node inserting 30 btwn 56 and 70
+         */
+        Node newNode = new Node(value);
+        newNode.next = prevNode.next;
+        prevNode.next = newNode;
+
     }
-    public void insertInBetween(Node previousNode ,Node newNode){
-        Node tempNode = previousNode.next;
-        previousNode.next = newNode;
-        newNode.next = tempNode;
+      /*
+       * creat a method name as pop
+       * in pop method used for deleting element
+       * here this is used for delete 1st element in linked list
+       */
+    public int pop() {
+        //variable
+        int popData = 0;
+
+        /*
+         * check the condition
+         */
+        if (head == null) {
+            System.out.println("Stack over flow ");
+        }
+        popData = head.data;
+        head = head.next;
+
+        return popData;
+
     }
 
-}
+    }
+
